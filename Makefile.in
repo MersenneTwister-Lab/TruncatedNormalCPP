@@ -190,7 +190,7 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 CSCOPE = cscope
-DIST_SUBDIRS = $(SUBDIRS)
+DIST_SUBDIRS = src include example doxygen
 am__DIST_COMMON = $(srcdir)/Makefile.in AUTHORS COPYING ChangeLog \
 	INSTALL NEWS README compile config.guess config.sub depcomp \
 	install-sh ltmain.sh missing
@@ -259,6 +259,7 @@ CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
 DLLTOOL = @DLLTOOL@
+DOXYGEN = @DOXYGEN@
 DSYMUTIL = @DSYMUTIL@
 DUMPBIN = @DUMPBIN@
 ECHO_C = @ECHO_C@
@@ -360,8 +361,10 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-SUBDIRS = src include
-dist_pkgdata_DATA = data/* example/*
+@HAVE_DOXYGEN_TRUE@doc_dir = doxygen
+SUBDIRS = src include example $(doc_dir)
+dist_pkgdata_DATA = data/*
+EXTRA_DIST = html
 ACLOCAL_AMFLAGS = -I m4
 AM_CXXFLAGS = -O3 -Wall -Wextra -D__STDC_CONSTANT_MACROS
 all: all-recursive

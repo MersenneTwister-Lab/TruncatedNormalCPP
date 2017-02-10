@@ -53,5 +53,15 @@ AX_GCC_BUILTIN(__builtin_popcount)
 AX_GCC_BUILTIN(__builtin_popcountl)
 AX_GCC_BUILTIN(__builtin_popcountll)
 
-AC_CONFIG_FILES([Makefile src/Makefile])
+AC_CHECK_PROGS([DOXYGEN], [doxygen])
+if test -z "$DOXYGEN";
+   then AC_MSG_WARN([Doxygen not found - continuing without Doxygen support])
+fi
+AM_CONDITIONAL([HAVE_DOXYGEN], [test -n "$DOXYGEN"])
+
+AC_CONFIG_FILES([Makefile \
+src/Makefile \
+include/Makefile \
+example/Makefile \
+doxygen/Makefile])
 AC_OUTPUT

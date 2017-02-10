@@ -31,13 +31,16 @@ namespace MCQMCIntegration {
      * structure of the result of truncatedNormal.
      */
     struct TruncatedNormalResult {
-        double probability;     /// estimated value of probability
-                                /// Pr(@c lower < X < @c upper).
-        double absoluteError;   /// absolute error.
-        double relativeError;   /// relative error.
-        double upperBound;      /// theoretical upper bound on true
-                                /// Pr(@c lower < X < @c upper).
-        bool success;           /// calculation success or not.
+        /** estimated value of probability Pr(@c lower < X < @c upper). */
+        double probability;
+        /** absolute error. */
+        double absoluteError;
+        /** relative error. */
+        double relativeError;
+        /** theoretical upper bound on true Pr(@c lower < X < @c upper). */
+        double upperBound;
+        /** calculation success or not. */
+        bool success;
     };
 
     /**
@@ -47,11 +50,15 @@ namespace MCQMCIntegration {
      * probability P r(@c lower < X < @c upper), where X is a
      * zero-mean multivariate normal vector with covariance matrix Σ,
      * that is, X is drawn from N(0, Σ) infinite values for vectors @c
-     * upper and @c lower are accepted; Monte Carlo method uses sample
-     * size n;
+     * upper and @c lower are accepted.
      *
      * @note parameter @c dn, digital net should have dimension s =
-     * lower.size - 1.
+     * lower.size - 1. And s should be an integer 4 <= s <= 10,
+     * therefore, lower.size size should be 5 <= size <= 11.
+     * Moreover, The F2-dimension of element of digitalnet, @c m
+     * should be 10 <= @c m <= 18.
+     *
+     * @note @c probability should be one of {0.95, 0.99, 0.999, 0.9999}
      *
      * @param[in] lower lower truncation limit.
      * @param[in] upper upper truncation limit.
@@ -78,14 +85,16 @@ namespace MCQMCIntegration {
      * probability P r(@c lower < X < @c upper), where X is a
      * zero-mean multivariate normal vector with covariance matrix Σ,
      * that is, X is drawn from N(0, Σ) infinite values for vectors @c
-     * upper and @c lower are accepted; Monte Carlo method uses sample
-     * size @c number;
+     * upper and @c lower are accepted.
      *
      * @c dnid is one of
      * @li @c DigitalNet::digital_net_id::NXLW
      * @li @c DigitalNet::digital_net_id::SOLW Sobol Low WAFOM
      *
-     * @c probability shoud be one of {0.95, 0.99, 0.999, 0.9999}
+     * @note The F2-dimension of element of digitalnet, @c m
+     * should be 10 <= @c m <= 18.
+     *
+     * @c probability should be one of {0.95, 0.99, 0.999, 0.9999}
      *
      * @param[in] lower lower truncation limit.
      * @param[in] upper upper truncation limit.
@@ -93,7 +102,7 @@ namespace MCQMCIntegration {
      * @param[in] number Monte Carlo simulation effort — the larger
      * the @c number, the smaller the relative error of the estimator.
      * @param[in] dnid digital netid.
-     * @param[in] m F2 dimention of element of digital net.
+     * @param[in] m F2 dimension of element of digital net.
      * @param[in] probability expected probability such that the
      * result is in the range [p - @c absoluteError, p + @c absoluteError].
      * @return estimated value of probability and other information.
@@ -103,10 +112,9 @@ namespace MCQMCIntegration {
         const std::vector<double>& upper,
         const std::vector< std::vector<double> >& sigma,
         uint64_t number,
-        DigitalNet<uint64_t>::digital_net_id dnid
-        = DigitalNet<uint64_t>::digital_net_id::NXLW,
-        uint32_t m = 10,
-        double probability = 0.99);
+        DigitalNet<uint64_t>::digital_net_id dnid,
+        uint32_t m,
+        double probability);
 
     /**
      * compute Multivariate Normal Distribution by Monte-Carlo method.
@@ -123,7 +131,7 @@ namespace MCQMCIntegration {
      * @li @c DigitalNet::digital_net_id::SOLW Sobol Low WAFOM
      * @li @c DigitalNet::digital_net_id::RANDOM Monte-Carlo method
      *
-     * @c probability shoud be one of {0.95, 0.99, 0.999, 0.9999}
+     * @c probability should be one of {0.95, 0.99, 0.999, 0.9999}
      *
      * @param[in] lower lower truncation limit.
      * @param[in] upper upper truncation limit.
@@ -141,7 +149,7 @@ namespace MCQMCIntegration {
         const std::vector< std::vector<double> >& sigma,
         uint32_t trialNumber,
         uint32_t sampleNumber,
-        double probability = 0.99);
+        double probability);
 
 }
 #endif // MCQMC_INTEGRATION_TRUNCATED_NORMAL_H

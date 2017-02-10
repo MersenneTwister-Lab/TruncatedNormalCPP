@@ -1,6 +1,6 @@
-DigitalNetIndex
+TruncatedNormal
 ===============
-Calculate WAFOM and t-value of Digital Net.
+Library to calculate Truncated Multivalual Normal Distribution
 
 REQUIREMENT
 ===========
@@ -17,48 +17,19 @@ INSTALL
 
 PREPARE
 =======
-before use, unzip data files
-
-    cd YOUR_INSTALL_DIR/share/digitalnetindex
-    gunzip bigtyl.dat.gz
-    gunzip meantyl.dat.gz
-
 set environment variable DIGITAL_NET_PATH
 
-    export DIGITAL_NET_PATH=YOUR_INSTALL_DIR/share/digitalnetindex
+    export DIGITAL_NET_PATH=YOUR_INSTALL_DIR/share/truncatednormal
 
-USAGE
-=====
+set LIBRARY_PATH and CPLUS_INCLUDE_PATH properly.
 
-    digitalnet_index [-t] [-m] [-w c] digital-net-datafile
-      --tvalue, -t	compute t-value of digitalnet
-      --mean-wafom, -m	compute mean WAFOM of digitalnet
-      --wafom, -w		compute WAFOM of digitalnet for specified c
-
-EXAMPLE
-=======
-An example of digital net data file is in example directory.
-
-    digitalnet_index -t -m example/nxlw_s4_m10.txt
-
-The last two items of the file are mean-wafom and t-value, and
-you can check them with the output.
-
-FILE FORMAT
-===========
-The file format of digital net data is as follows:
-
-    1st item: 64 fixed
-    2nd item: s
-    3rd item: m
-    from 4th: s * m number of 64-bit unsigned integers
-    remain:   ignored
-
-The delimiters of item are whitespaces and/or newlines.
+DOCUMENT
+========
+see [html/index.html](./html/index.html)
 
 CAUTION
 =======
-Data file `bigtyl.dat' and `meantyl.dat' are binary files which were
+Data file 'nxlw.dat' and 'solw.dat' are binary files which were
 made on Little Endian System and will not work correctly on
 Big Endian Systems.
 
@@ -78,6 +49,8 @@ In: Advances in Numerical Methods and Applications, pages 120–126
 
 LICENSE
 =======
+    Copyright (C) 2015 Zdravko I. Botev.
+
     Copyright (C) 2017 Shinsuke Mori, Makoto Matsutmoto, Mutsuo Saito
     and Hiroshima University.
 

@@ -393,7 +393,7 @@ on `(hostname || uname -n) 2>/dev/null | sed 1q`
 "
 
 # Files that config.status was made for.
-config_files=" Makefile src/Makefile"
+config_files=" Makefile src/Makefile include/Makefile example/Makefile doxygen/Makefile"
 config_headers=" src/config.h"
 config_commands=" depfiles libtool"
 
@@ -804,6 +804,9 @@ do
     "libtool") CONFIG_COMMANDS="$CONFIG_COMMANDS libtool" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "src/Makefile") CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
+    "include/Makefile") CONFIG_FILES="$CONFIG_FILES include/Makefile" ;;
+    "example/Makefile") CONFIG_FILES="$CONFIG_FILES example/Makefile" ;;
+    "doxygen/Makefile") CONFIG_FILES="$CONFIG_FILES doxygen/Makefile" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac
@@ -873,6 +876,9 @@ S["am__EXEEXT_FALSE"]=""
 S["am__EXEEXT_TRUE"]="#"
 S["LTLIBOBJS"]=""
 S["LIBOBJS"]=""
+S["HAVE_DOXYGEN_FALSE"]="#"
+S["HAVE_DOXYGEN_TRUE"]=""
+S["DOXYGEN"]="doxygen"
 S["BOOST_LDFLAGS"]="-L/opt/local/lib"
 S["BOOST_CPPFLAGS"]="-I/opt/local/include"
 S["HAVE_CXX11"]="1"

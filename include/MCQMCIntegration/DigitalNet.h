@@ -93,12 +93,12 @@ namespace MCQMCIntegration {
          * FORMAT:
          * @li separators are white spaces or newlines.
          * @li 1st element : 64 fixed.
-         * @li 2nd element : @b s, dimention of point set.
-         * @li 3rd element : @b m, F2 dimention of element of point set.
-         * @li 4th -       : @b s * @b m elsemets of 64-bit integers.
+         * @li 2nd element : @b s, dimension of point set.
+         * @li 3rd element : @b m, F2 dimension of element of point set.
+         * @li 4th -       : @b s * @b m elements of 64-bit integers.
          * @li last but one: WAFOM value, optional.
          * @li last        : t-value, optional.
-         * @throw runtime_error when ca't read from stream.
+         * @throw runtime_error when can't read from stream.
          */
         DigitalNet(std::istream& is);
 
@@ -106,8 +106,9 @@ namespace MCQMCIntegration {
          * constructor from pre-defined data.
          *
          * @param[in] id ID of pre-defined digital net.
-         * @param[in] s dimention of point set.
-         * @param[in] m F2 dimention of element of point set.
+         * @param[in] s dimension of point set, s should be 4 <= s <= 10.
+         * @param[in] m F2 dimension of element of point set, m should be
+         * 10 <= m <= 18.
          */
         DigitalNet(const digital_net_id& id, uint32_t s, uint32_t m);
 
@@ -144,16 +145,16 @@ namespace MCQMCIntegration {
         }
 
         /**
-         * get dimention of digital net.
-         * @return dimention of digital net.
+         * get dimension of digital net.
+         * @return dimension of digital net.
          */
         uint32_t getS() const {
             return s;
         }
 
         /**
-         * get F2 dimention of element of digital net.
-         * @return F2 dimention of element of digital net.
+         * get F2 dimension of element of digital net.
+         * @return F2 dimension of element of digital net.
          */
         uint32_t getM() const {
             return m;
@@ -226,26 +227,26 @@ namespace MCQMCIntegration {
         static const std::string getDigitalNetConstruction(uint32_t index);
 
         /**
-         * get maximum number of pre-defined digital net dimention @b s.
-         * @return maximum number of pre-defined digital net dimention @b s.
+         * get maximum number of pre-defined digital net dimension @b s.
+         * @return maximum number of pre-defined digital net dimension @b s.
          */
         static uint32_t getSMax();
 
         /**
-         * get minimum number of pre-defined digital net dimention @b s.
-         * @return minimum number of pre-defined digital net dimention @b s.
+         * get minimum number of pre-defined digital net dimension @b s.
+         * @return minimum number of pre-defined digital net dimension @b s.
          */
         static uint32_t getSMin();
 
         /**
-         * get maximum number of pre-defined digital net F2 dimention @b m.
-         * @return maximum number of pre-defined digital net F2 dimention @b m.
+         * get maximum number of pre-defined digital net F2 dimension @b m.
+         * @return maximum number of pre-defined digital net F2 dimension @b m.
          */
         static uint32_t getMMax();
 
         /**
-         * get minimum number of pre-defined digital net F2 dimention @b m.
-         * @return minimum number of pre-defined digital net F2 dimention @b m.
+         * get minimum number of pre-defined digital net F2 dimension @b m.
+         * @return minimum number of pre-defined digital net F2 dimension @b m.
          */
         static uint32_t getMMin();
     private:
@@ -265,25 +266,5 @@ namespace MCQMCIntegration {
         uint64_t * point_base;
         double * point;
     };
-
-#if 0
-    template<typename T>
-        void print(std::ostream& os, const DigitalNet<T>& dn)
-    {
-        using namespace std;
-        int s = dn.getS();
-        int m = dn.getM();
-        os << "n = " << (sizeof(T) * 8) << endl;
-        os << "s = " << s << endl;
-        os << "m = " << m << endl;
-        for (int k = 0; k < m; k++) {
-            for (int i = 0; i < s; i++) {
-                os << "base[" << dec << k << "][" << i << "]"
-                   << dn.get(k, i) << " ";
-            }
-            os << endl;
-        }
-    }
-#endif
 }
 #endif // MCQMC_INTEGRATION_DIGITAL_NET_H

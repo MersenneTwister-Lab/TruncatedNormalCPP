@@ -386,7 +386,7 @@ namespace {
     /**
      * rescale lower, upper and L
      *
-     * @param[in] s dimention
+     * @param[in] s dimension
      * @param[in/out] lower lower bound
      * @param[in/out] upper upper bound
      * @param[in/out] L Cholesky Decomposition of sigma
@@ -410,7 +410,7 @@ namespace {
      * implements grad_psi(x) to find optimal exponential twisting;
      * assume scaled 'L' with zero diagonal;
      *
-     * @param[in] s dimention
+     * @param[in] s dimension
      * @param[in] y
      * @param[in/out] L
      * @param[in] lower lower bound:l
@@ -537,7 +537,7 @@ namespace {
      * cholperm <-
      *  function( Sig, l, u )
      *
-     * @param[in] s dimention
+     * @param[in] s dimension
      * @param[in/out] sigma variant/covariant matrix:Sig
      * @param[in/out] lower lower integration limit:l
      * @param[in/out] upper upper integration limit:u

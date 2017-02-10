@@ -78,16 +78,16 @@ namespace MCQMCIntegration {
         /**
          * check and prepare.
          *
-         * this menber function should be called before Quasi
+         * this member function should be called before Quasi
          * Monte-Carlo or Monte-Carlo integration.
-         * @return true if parameter check and preparation successed.
+         * @return true if parameter check and preparation success.
          */
         bool checkAndPrepare();
 
         /**
          * call back function for Quasi Monte-Carlo or Monte-Carlo integration.
          *
-         * @param[in] x point in s -1 dimention, x should have length
+         * @param[in] x point in s -1 dimension, x should have length
          * s - 1, where s is length of @c lower and @c upper.
          * @return estimated value of a point @c x.
          */
@@ -120,7 +120,7 @@ namespace MCQMCIntegration {
         /**
          * get an explanation of predefined parameter.
          * @param[in] index index of predefined parameter.
-         * @return an explanation of predefined paramater.
+         * @return an explanation of predefined parameter.
          */
         static const std::string getParameterConstruction(uint32_t index);
     private:
