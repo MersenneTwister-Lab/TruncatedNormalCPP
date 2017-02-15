@@ -62,6 +62,8 @@ namespace MCQMCIntegration {
 
     /*
      * Monte-Carlo Integration.
+     * This function returns mean value, to get sum value multiply m
+     * to the result.
      *
      * @tperm I integrand function class.
      * @tparm R Random number generator class.
@@ -108,6 +110,8 @@ namespace MCQMCIntegration {
 
     /*
      * Quasi Monte-Carlo Integration
+     * This function returns mean value, to get sum value multiply m
+     * to the result.
      *
      * @tperm I integrand function class
      * @tparm D DigitalNet class for Quasi Monete-Carlo integration.
@@ -128,6 +132,49 @@ namespace MCQMCIntegration {
                                                   int probability = 99)
     {
         uint32_t m = digitalNet.getM();
+        digitalNet.pointInitialize();
+        OnlineVariance eachintval;
+        uint32_t cnt = 0;
+        do {
+            OnlineVariance intsum;
+            uint64_t max = 1;
+            max = max << m;
+            for (uint64_t j = 0; j < max; ++j) {
+                intsum.addData(integrand(digitalNet.getPoint()));
+                digitalNet.nextPoint();
+            }
+            eachintval.addData(intsum.getMean());
+            cnt++;
+        } while ( cnt < N );
+        return MCQMCResult({eachintval.getMean(),
+                    eachintval.absErr(probability)});
+    }
+
+    /*
+     * Quasi Monte-Carlo Integration
+     * This function returns mean value, to get sum value multiply m
+     * to the result.
+     *
+     * @tperm I integrand function class
+     *
+     * @param[in] N number of trials.
+     * @param[in,out] integrand integrand function class, which should have
+     * double operator()(double[]).
+     * @param[in,out] digitalNet digital net class.
+     * @param[in] probability expected probability of returned value x is
+     * between x - absolute error and x + absolute error. this should be
+     * one of {95, 99, 999, 9999}.
+     * @return MCQMCResult.
+     */
+    template<typename I>
+        MCQMCResult quasi_monte_carlo_integration(uint32_t N,
+                                                  I& integrand,
+                                                  DigitalNetID digitalNetId,
+                                                  uint32_t s,
+                                                  uint32_t m,
+                                                  int probability)
+    {
+        DigitalNet<uint64_t> digitalNet(digitalNetId, s, m);
         digitalNet.pointInitialize();
         OnlineVariance eachintval;
         uint32_t cnt = 0;

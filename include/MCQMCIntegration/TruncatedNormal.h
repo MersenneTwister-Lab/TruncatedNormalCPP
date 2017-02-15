@@ -88,8 +88,8 @@ namespace MCQMCIntegration {
      * upper and @c lower are accepted.
      *
      * @c dnid is one of
-     * @li @c DigitalNet::digital_net_id::NXLW
-     * @li @c DigitalNet::digital_net_id::SOLW Sobol Low WAFOM
+     * @li @c DigitalNetID::NXLW Niederreiter-Xing Low WAFOM
+     * @li @c DigitalNetID::SOLW Sobol Low WAFOM
      *
      * @note The F2-dimension of element of digitalnet, @c m
      * should be 10 <= @c m <= 18.
@@ -112,7 +112,7 @@ namespace MCQMCIntegration {
         const std::vector<double>& upper,
         const std::vector< std::vector<double> >& sigma,
         uint64_t number,
-        DigitalNet<uint64_t>::digital_net_id dnid,
+        DigitalNetID dnid,
         uint32_t m,
         double probability);
 
@@ -125,11 +125,6 @@ namespace MCQMCIntegration {
      * that is, X is drawn from N(0, Σ) infinite values for vectors @c
      * upper and @c lower are accepted; Monte Carlo method uses sample
      * size @c number;
-     *
-     * @c dnid is one of
-     * @li @c DigitalNet::digital_net_id::NXLW
-     * @li @c DigitalNet::digital_net_id::SOLW Sobol Low WAFOM
-     * @li @c DigitalNet::digital_net_id::RANDOM Monte-Carlo method
      *
      * @c probability should be one of {0.95, 0.99, 0.999, 0.9999}
      *

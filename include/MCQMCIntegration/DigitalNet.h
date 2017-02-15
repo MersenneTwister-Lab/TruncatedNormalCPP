@@ -29,6 +29,14 @@
 
 namespace MCQMCIntegration {
     /**
+     * ID of pre-defined Digital Net.
+     */
+    enum DigitalNetID {
+        NXLW = 3,           //! Niederreiter-Xing point set of Low WAFOM.
+        SOLW = 4            //! Sobol point set of Low WAFOM.
+    };
+
+    /**
      * Digital Net class for Quasi Mote-Carlo Method.
      * This class is almost dummy.
      *
@@ -76,18 +84,6 @@ namespace MCQMCIntegration {
 
     public:
         /**
-         * ID of pre-defined Digital Net.
-         */
-        enum digital_net_id {
-            NX = 0,             //! Niederreiter-Xing point set.
-            SO = 1,             //! Sobol point set.
-            OLDSO = 2,          //! Old Sobol point set.
-            NXLW = 3,           //! Niederreiter-Xing point set of Low WAFOM.
-            SOLW = 4,           //! Sobol point set of Low WAFOM.
-            RANDOM = -1         //! Monte-Carlo
-        };
-
-        /**
          * constructor from stream.
          *
          * FORMAT:
@@ -105,12 +101,15 @@ namespace MCQMCIntegration {
         /**
          * constructor from pre-defined data.
          *
+         * DigitalNetID:
+         * @li NXLW : Niederreiter-Xing low WAFOM
+         * @li SOLW : Sobol low WAFOM.
          * @param[in] id ID of pre-defined digital net.
          * @param[in] s dimension of point set, s should be 4 <= s <= 10.
          * @param[in] m F2 dimension of element of point set, m should be
          * 10 <= m <= 18.
          */
-        DigitalNet(const digital_net_id& id, uint32_t s, uint32_t m);
+        DigitalNet(DigitalNetID id, uint32_t s, uint32_t m);
 
         /**
          * destructor.
@@ -201,7 +200,7 @@ namespace MCQMCIntegration {
         int64_t getTvalue() {
             return tvalue;
         }
-
+#if 0
         /**
          * get a file path for predefined data.
          * @return a file path for predefined data.
@@ -225,7 +224,7 @@ namespace MCQMCIntegration {
          * @return explanation of pre-defined digital net.
          */
         static const std::string getDigitalNetConstruction(uint32_t index);
-
+#endif
         /**
          * get maximum number of pre-defined digital net dimension @b s.
          * @return maximum number of pre-defined digital net dimension @b s.

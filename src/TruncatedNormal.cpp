@@ -94,7 +94,7 @@ namespace MCQMCIntegration {
         const std::vector<double>& upper,
         const std::vector< std::vector<double> >& sigma,
         uint64_t number,
-        DigitalNet<uint64_t>::digital_net_id dnid,
+        DigitalNetID dnid,
         uint32_t m,
         double probability)
     {

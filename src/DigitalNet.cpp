@@ -17,7 +17,7 @@
  * COPYING
  */
 #include "config.h"
-#include "digital.h"
+#include "digital_data.h"
 #include "powtwo.h"
 #include "bit_operator.h"
 #include <MCQMCIntegration/DigitalNet.h>
@@ -44,6 +44,7 @@ namespace {
     const int M_MIN = 10;
     const int M_MAX = 18;
 
+#if 0
     const string digital_net_path = "DIGITAL_NET_PATH";
     struct digital_net_name {
         std::string name;
@@ -60,6 +61,7 @@ namespace {
     };
 
     const uint32_t digital_net_name_data_size = 5;
+#endif
     const double powhalftable[67] =
     {
         1.00000000000000000000e+00,
@@ -185,18 +187,6 @@ namespace MCQMCIntegration {
         return bitPos(pre ^ gray);
     }
 
-#if 0
-    DigitalNet<uint64_t>::DigitalNet(int s, int m)
-    {
-        this->s = s;
-        this->m = m;
-        this->base = new uint64_t[s * m];
-        this->point_base = NULL;
-        this->point = NULL;
-        this->count = 0;
-    }
-#endif
-
 /**
  * Constructor from input stream
  *
@@ -268,7 +258,7 @@ namespace MCQMCIntegration {
  * @param m m value
  * @exception runtime_error, when can't read data from is.
  */
-    DigitalNet<uint64_t>::DigitalNet(const digital_net_id& id,
+    DigitalNet<uint64_t>::DigitalNet(DigitalNetID id,
                                      uint32_t s,
                                      uint32_t m)
     {
@@ -277,84 +267,49 @@ namespace MCQMCIntegration {
 #endif
         this->s = s;
         this->m = m;
-        string path;
-        const char * cpath = getDataPath();
-        if (cpath == NULL) {
-            path = "../data";
+        const dndata * data;
+        if (id == NXLW) {
+            data = nxlw;
+        } else if (id == SOLW) {
+            data = solw;
         } else {
-            path = cpath;
+            cerr << "undefined id" << endl;
+            throw runtime_error("undefined id");
         }
-        if (path.back() != '/') {
-            path += "/";
+        if (s < S_MIN || s > S_MAX || m < M_MIN || m > M_MAX) {
+            cerr << "(s,m) out of range:("
+                 << dec << s << "," << m << ")" << endl;
+            throw runtime_error("(s,m) out of range");
         }
-        //string name = digital_net_name_data[id].name;
-        string name = digital_net_name_data[id].abb;
-        path += name;
-        path += ".dat";
-        const char * mode = "rb";
-        size_t count;
-        errno = 0;
-        FILE *fp = fopen(path.c_str(), mode);
-        if (fp == NULL) {
-            cerr << path.c_str() << ":" << strerror(errno) << endl;
-            throw runtime_error("can't open");
-        }
-        uint64_t dmy;
-        count = fread(&dmy, sizeof(uint64_t), 1, fp);
-        if (count != 1) {
-            cerr << "fail to read magic number" << endl;
-            throw runtime_error("fail to read magic number");
-        }
-        if (dmy != DIGITAL_MAGIC) {
-            cerr << "magic number mismatch" << endl;
-            throw runtime_error("magic number mismatch");
-        }
-        digital_net_header_t header;
+        int start = 0;
+        int end = (S_MAX - S_MIN + 1) * (M_MAX - M_MIN + 1) -1;
+        bool found = false;
+        int pos = (start + end) / 2;
         for (;;) {
-            count = fread(&header, sizeof(digital_net_header_t), 1, fp);
-            if (count != 1) {
-                cerr << "fail to read header s = "
-                     << dec << s << " m = " << m << endl;
-                throw runtime_error("can't read header");
-            }
-            //cout << "DEBUG:s = " << dec << s
-            //     << " m = " << m << endl;
-            //cout << "DEBUG:header s = " << dec << header.s
-            //     << " m = " << header.m << endl;
-            if (header.s > s && header.m > m) {
-                cerr << "s = " << dec << s << " m = " << m << endl;
-                cerr << "header s = " << dec << header.s << " m = " << header.m
-                     << endl;
-                throw runtime_error("can't find s and m in header");
-            }
-            if (header.s == s && header.m == m) {
+            int pos = (start + end) / 2;
+            if (data[pos].s == this->s && data[pos].m == this->m) {
+                found = true;
                 break;
             }
+            if (data[pos].s < this->s ||
+                (data[pos].s == this->s && data[pos].m < this->m)) {
+                start = pos;
+            } else {
+                end = pos;
+            }
         }
-        fseek(fp, header.pos, SEEK_SET);
-        size_t size = s * m * sizeof(uint64_t);
-        size_t total_size = sizeof(digital_net_data_t) + size;
-        digital_net_data_t * dn;
-        dn = reinterpret_cast<digital_net_data_t *>(malloc(total_size));
-        count = fread(dn, sizeof(digital_net_data_t), 1, fp);
-        if (count != 1) {
-            cerr << "fail to read digital net data" << endl;
-            throw runtime_error("fail to read digital net data");
+        if (!found) {
+            cerr << "can't find (s,m) = ("
+                 << dec << s << "," << m <<")" << endl;
+            throw runtime_error("can't find (s,m)");
         }
-        count = fread(dn->data, size, 1, fp);
-        if (count != 1) {
-            cout << "fail to read digtal net array" << endl;
-            throw runtime_error("fail to read digtal net array");
-        }
-        fclose(fp);
-        wafom = dn->wafom;
-        tvalue = dn->tvalue;
+        wafom = data[pos].wafom;
+        tvalue = data[pos].tvalue;
         base = new uint64_t[s * m];
-        uint64_t * data = dn->data;
+        //uint64_t * datap = data[pos].data;
         for (uint32_t i = 0; i < s * m; i++) {
-            base[i] = data[i];
+            base[i] = data[pos].data[i];
         }
-        free(dn);
         this->point_base = NULL;
         this->point = NULL;
         this->count = 0;
@@ -486,6 +441,7 @@ namespace MCQMCIntegration {
         mt.seed(seed);
     }
 
+#if 0
     const char * DigitalNet<uint64_t>::getDataPath()
     {
         return getenv(digital_net_path.c_str());
@@ -512,7 +468,7 @@ namespace MCQMCIntegration {
             return "";
         }
     }
-
+#endif
     uint32_t DigitalNet<uint64_t>::getSMax()
     {
         return S_MAX;

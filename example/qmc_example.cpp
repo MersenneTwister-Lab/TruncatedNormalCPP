@@ -32,8 +32,7 @@ int main()
     }
 
     // QMC
-    DigitalNet<uint64_t>::digital_net_id id =
-        DigitalNet<uint64_t>::digital_net_id::NXLW;
+    DigitalNetID id = NXLW;
     const TruncatedNormalResult result
         = truncatedNormal(lower,
                           upper,

@@ -1,3 +1,7 @@
 2017-02-10  Mutsuo Saito <saito@manieth.com>
 
 	* Initial Release
+
+2017-02-15  Mutsuo Saito <saito@manieth.com>
+
+	* src/DigitalNet.cpp change pre-defined digital net: file to table.

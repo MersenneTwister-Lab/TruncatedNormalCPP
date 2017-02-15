@@ -249,6 +249,15 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
+#directory = $(top_srcdir)/doc/
+
+#dist_man_MANS = $(directory)/index.html
+@HAVE_DOXYGEN_TRUE@incdir = $(top_srcdir)/include/MCQMCIntegration
+@HAVE_DOXYGEN_TRUE@incfiles = $(incdir)/DigitalNet.h \
+@HAVE_DOXYGEN_TRUE@	$(incdir)/MCQMCIntegration.h \
+@HAVE_DOXYGEN_TRUE@	$(incdir)/BotevAlgorithm.h \
+@HAVE_DOXYGEN_TRUE@	$(incdir)/TruncatedNormal.h
+
 @HAVE_DOXYGEN_TRUE@CLEANFILES = doxyfile.stamp
 all: all-am
 
@@ -444,13 +453,10 @@ uninstall-am:
 
 .PRECIOUS: Makefile
 
-#directory = $(top_srcdir)/doc/
 
-#dist_man_MANS = $(directory)/index.html
+#../html/index.html: mainpage.txt $(incfiles) doxyfile.stamp
 
-@HAVE_DOXYGEN_TRUE@index.html: mainpage.txt doxyfile.stamp
-
-@HAVE_DOXYGEN_TRUE@doxyfile.stamp:
+@HAVE_DOXYGEN_TRUE@doxyfile.stamp: mainpage.txt $(incfiles)
 @HAVE_DOXYGEN_TRUE@	$(DOXYGEN) doxygen.cfg
 @HAVE_DOXYGEN_TRUE@	echo Timestamp > doxyfile.stamp
 
