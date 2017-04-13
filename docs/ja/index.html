@@ -107,7 +107,7 @@ SOLW : WAFOM値の低い　Sobol 点集合。
 uint32_t m
 </dt>
 <dd>
-デジタルネットの上位mビットまで精度, また１回の積分で2^m個の点を使用する。
+デジタルネットの上位mビットまでの精度, また１回の積分で2^m個の点を使用する。
 </dd>
 <dt>
 double probability
@@ -150,7 +150,7 @@ success
 </dd>
 </dl>
 <h2 id="mcqmcintegrationtruncatednormal呼び出し例">MCQMCIntegration::truncatedNormal()呼び出し例</h2>
-<p>この例では、 まず#includeとnamespaceの指定をしています。</p>
+<p>この例では、 まず#includeとnamespaceの指定をしている。</p>
 <div class="sourceCode" id="prepare1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;MCQMCIntegration/TruncatedNormal.h&gt;</span>
 <span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
 <span class="pp">#include </span><span class="im">&lt;string&gt;</span>
@@ -159,7 +159,7 @@ success
 
 <span class="kw">using</span> <span class="kw">namespace</span> std;
 <span class="kw">using</span> <span class="kw">namespace</span> MCQMCIntegration;</code></pre></div>
-<p>次に多変量正規分布の値を求める範囲と分散共分散行列の初期値を設定しています。 truncatedNormalの引数はVector型ですが、初期値を設定するために配列にしています。</p>
+<p>次に多変量正規分布の値を求める範囲と分散共分散行列の初期値を設定している。 truncatedNormalの引数はVector型であるが、初期値を設定するために配列にしている。</p>
 <div class="sourceCode" id="prepare2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="co">// parameter example</span>
 <span class="at">const</span> <span class="dt">uint32_t</span> s = <span class="dv">5</span>;
 <span class="dt">double</span> LOWER[<span class="dv">5</span>] = {-INFINITY, -INFINITY, -INFINITY, -INFINITY, -INFINITY};
@@ -171,7 +171,7 @@ success
     {<span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>, <span class="fl">1.666667e+00</span>, <span class="fl">8.333333e-01</span>},
     {<span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>, <span class="fl">1.666667e+00</span>}
 };</code></pre></div>
-<p>以下はmain関数になります。配列をvectorに変更し、truncatedNormal関数を呼び出しています。</p>
+<p>以下はmain関数になる。配列をvectorに変更し、truncatedNormal関数を呼び出している。</p>
 <div class="sourceCode" id="main"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> main()
 {
     <span class="co">// prepare integration area.</span>
