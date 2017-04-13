@@ -9,9 +9,6 @@
 /* define if the compiler supports basic C++14 syntax */
 #undef HAVE_CXX14
 
-/* Define to 1 if you have the <dlfcn.h> header file. */
-#undef HAVE_DLFCN_H
-
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
 
@@ -49,9 +46,6 @@
 /* Define to 1 if the system has the `__builtin_popcountll' built-in function
    */
 #undef HAVE___BUILTIN_POPCOUNTLL
-
-/* Define to the sub-directory where libtool stores uninstalled libraries. */
-#undef LT_OBJDIR
 
 /* Name of package */
 #undef PACKAGE

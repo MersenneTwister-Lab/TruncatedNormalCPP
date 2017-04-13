@@ -4,6 +4,8 @@
  * TruncatedNormalCPP is a C++ version library of Zdravko I. Botev's
  * R package TruncatedNormal
  *
+ * <a href="./ja/index.html">Japanese Document Page</a>
+ *
  *<ul>
  * <li>data structure MCQMCIntegration::TruncatedNormalResult
  * <li>function MCQMCIntegration::truncatedNormal()

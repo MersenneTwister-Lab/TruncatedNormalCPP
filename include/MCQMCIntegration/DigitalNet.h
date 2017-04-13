@@ -32,8 +32,10 @@ namespace MCQMCIntegration {
      * ID of pre-defined Digital Net.
      */
     enum DigitalNetID {
-        NXLW = 3,           //! Niederreiter-Xing point set of Low WAFOM.
-        SOLW = 4            //! Sobol point set of Low WAFOM.
+        /** Niederreiter-Xing point set of Low WAFOM. */
+        NXLW = 3,
+        /** Sobol point set of Low WAFOM. */
+        SOLW = 4
     };
 
     /**

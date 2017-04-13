@@ -10,9 +10,6 @@
 /* define if the compiler supports basic C++14 syntax */
 #define HAVE_CXX14 1
 
-/* Define to 1 if you have the <dlfcn.h> header file. */
-#define HAVE_DLFCN_H 1
-
 /* Define to 1 if you have the <inttypes.h> header file. */
 #define HAVE_INTTYPES_H 1
 
@@ -51,9 +48,6 @@
    */
 #define HAVE___BUILTIN_POPCOUNTLL 1
 
-/* Define to the sub-directory where libtool stores uninstalled libraries. */
-#define LT_OBJDIR ".libs/"
-
 /* Name of package */
 #define PACKAGE "truncatednormalcpp"
 
@@ -64,7 +58,7 @@
 #define PACKAGE_NAME "TruncatedNormalCPP"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "TruncatedNormalCPP 0.2"
+#define PACKAGE_STRING "TruncatedNormalCPP 0.2.1"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "truncatednormalcpp"
@@ -73,10 +67,10 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "0.2"
+#define PACKAGE_VERSION "0.2.1"
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
 
 /* Version number of package */
-#define VERSION "0.2"
+#define VERSION "0.2.1"

@@ -1,7 +1,11 @@
-2017-02-10  Mutsuo Saito <saito@manieth.com>
+2017-04-11  Mutsuo Saito <saito@manieth.com>
 
-	* Initial Release
+	* change html dir to docs dir for GitHub web page.
 
 2017-02-15  Mutsuo Saito <saito@manieth.com>
 
 	* src/DigitalNet.cpp change pre-defined digital net: file to table.
+
+2017-02-10  Mutsuo Saito <saito@manieth.com>
+
+	* Initial Release

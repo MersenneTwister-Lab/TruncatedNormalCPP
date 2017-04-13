@@ -25,7 +25,7 @@ set LIBRARY_PATH and CPLUS_INCLUDE_PATH properly.
 
 DOCUMENT
 ========
-see [html/index.html](./html/index.html)
+see [docs/index.html](./docs/index.html)
 
 CAUTION
 =======
