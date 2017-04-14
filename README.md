@@ -26,6 +26,7 @@ set LIBRARY_PATH and CPLUS_INCLUDE_PATH properly.
 DOCUMENT
 ========
 see [docs/index.html](./docs/index.html)
+[GitHub Pages](https://mersennetwister-lab.github.io/TruncatedNormalCPP/)
 
 CAUTION
 =======

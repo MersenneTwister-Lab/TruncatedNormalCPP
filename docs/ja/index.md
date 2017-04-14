@@ -5,6 +5,13 @@
 Zdravko I. Botev 氏のRパッケージTruncatedNormal
 のC++版である。
 
+ソースファイル
+==========
+
+- [GitHubソースファイル](https://github.com/MersenneTwister-Lab/TruncatedNormalCPP)
+- [C++ライブラリリファレンス](../index.html)
+- [アーカイブファイル:truncatednormalcpp-0.2.1.tar.gz](truncatednormalcpp-0.2.1.tar.gz)
+
 インストール
 =========
 
