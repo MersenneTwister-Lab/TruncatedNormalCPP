@@ -6,144 +6,111 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
   <link href="data:text/css;charset=utf-8,body%20%7B%0Afont%2Dfamily%3A%20Helvetica%2C%20arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E6%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%2010px%3B%0Abackground%2Dcolor%3A%20white%3B%0Apadding%3A%2030px%3B%20%7D%0Abody%20%3E%20%2A%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%20%21important%3B%20%7D%0Abody%20%3E%20%2A%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%20%21important%3B%20%7D%0Aa%20%7B%0Acolor%3A%20%234183C4%3B%20%7D%0Aa%2Eabsent%20%7B%0Acolor%3A%20%23cc0000%3B%20%7D%0Aa%2Eanchor%20%7B%0Adisplay%3A%20block%3B%0Apadding%2Dleft%3A%2030px%3B%0Amargin%2Dleft%3A%20%2D30px%3B%0Acursor%3A%20pointer%3B%0Aposition%3A%20absolute%3B%0Atop%3A%200%3B%0Aleft%3A%200%3B%0Abottom%3A%200%3B%20%7D%0Ah1%2C%20h2%2C%20h3%2C%20h4%2C%20h5%2C%20h6%20%7B%0Amargin%3A%2020px%200%2010px%3B%0Apadding%3A%200%3B%0Afont%2Dweight%3A%20bold%3B%0A%2Dwebkit%2Dfont%2Dsmoothing%3A%20antialiased%3B%0Acursor%3A%20text%3B%0Aposition%3A%20relative%3B%20%7D%0Ah1%3Ahover%20a%2Eanchor%2C%20h2%3Ahover%20a%2Eanchor%2C%20h3%3Ahover%20a%2Eanchor%2C%20h4%3Ahover%20a%2Eanchor%2C%20h5%3Ahover%20a%2Eanchor%2C%20h6%3Ahover%20a%2Eanchor%20%7B%0Abackground%3A%20url%28data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8%2F9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw%2FeHBhY2tldCBiZWdpbj0i77u%2FIiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8%2BIDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI%2FPsQhXeAAAABfSURBVHjaYvz%2F%2Fz8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg%3D%3D%29%20no%2Drepeat%2010px%20center%3B%0Atext%2Ddecoration%3A%20none%3B%20%7D%0Ah1%20tt%2C%20h1%20code%20%7B%0Afont%2Dsize%3A%20inherit%3B%20%7D%0Ah2%20tt%2C%20h2%20code%20%7B%0Afont%2Dsize%3A%20inherit%3B%20%7D%0Ah3%20tt%2C%20h3%20code%20%7B%0Afont%2Dsize%3A%20inherit%3B%20%7D%0Ah4%20tt%2C%20h4%20code%20%7B%0Afont%2Dsize%3A%20inherit%3B%20%7D%0Ah5%20tt%2C%20h5%20code%20%7B%0Afont%2Dsize%3A%20inherit%3B%20%7D%0Ah6%20tt%2C%20h6%20code%20%7B%0Afont%2Dsize%3A%20inherit%3B%20%7D%0Ah1%20%7B%0Afont%2Dsize%3A%2028px%3B%0Acolor%3A%20black%3B%20%7D%0Ah2%20%7B%0Afont%2Dsize%3A%2024px%3B%0Aborder%2Dbottom%3A%201px%20solid%20%23cccccc%3B%0Acolor%3A%20black%3B%20%7D%0Ah3%20%7B%0Afont%2Dsize%3A%2018px%3B%20%7D%0Ah4%20%7B%0Afont%2Dsize%3A%2016px%3B%20%7D%0Ah5%20%7B%0Afont%2Dsize%3A%2014px%3B%20%7D%0Ah6%20%7B%0Acolor%3A%20%23777777%3B%0Afont%2Dsize%3A%2014px%3B%20%7D%0Ap%2C%20blockquote%2C%20ul%2C%20ol%2C%20dl%2C%20li%2C%20table%2C%20pre%20%7B%0Amargin%3A%2015px%200%3B%20%7D%0Ahr%20%7B%0Abackground%3A%20transparent%20url%28data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw%2FeHBhY2tldCBiZWdpbj0i77u%2FIiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8%2BIDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI%2FPqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC%29%20repeat%2Dx%200%200%3B%0Aborder%3A%200%20none%3B%0Acolor%3A%20%23cccccc%3B%0Aheight%3A%204px%3B%0Apadding%3A%200%3B%20%7D%0Abody%20%3E%20h2%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%3B%0Apadding%2Dtop%3A%200%3B%20%7D%0Abody%20%3E%20h1%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%3B%0Apadding%2Dtop%3A%200%3B%20%7D%0Abody%20%3E%20h1%3Afirst%2Dchild%20%2B%20h2%20%7B%0Amargin%2Dtop%3A%200%3B%0Apadding%2Dtop%3A%200%3B%20%7D%0Abody%20%3E%20h3%3Afirst%2Dchild%2C%20body%20%3E%20h4%3Afirst%2Dchild%2C%20body%20%3E%20h5%3Afirst%2Dchild%2C%20body%20%3E%20h6%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%3B%0Apadding%2Dtop%3A%200%3B%20%7D%0Aa%3Afirst%2Dchild%20h1%2C%20a%3Afirst%2Dchild%20h2%2C%20a%3Afirst%2Dchild%20h3%2C%20a%3Afirst%2Dchild%20h4%2C%20a%3Afirst%2Dchild%20h5%2C%20a%3Afirst%2Dchild%20h6%20%7B%0Amargin%2Dtop%3A%200%3B%0Apadding%2Dtop%3A%200%3B%20%7D%0Ah1%20p%2C%20h2%20p%2C%20h3%20p%2C%20h4%20p%2C%20h5%20p%2C%20h6%20p%20%7B%0Amargin%2Dtop%3A%200%3B%20%7D%0Ali%20p%2Efirst%20%7B%0Adisplay%3A%20inline%2Dblock%3B%20%7D%0Aul%2C%20ol%20%7B%0Apadding%2Dleft%3A%2030px%3B%20%7D%0Aul%20%3Afirst%2Dchild%2C%20ol%20%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%3B%20%7D%0Aul%20%3Alast%2Dchild%2C%20ol%20%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%3B%20%7D%0Adl%20%7B%0Apadding%3A%200%3B%20%7D%0Adl%20dt%20%7B%0Afont%2Dsize%3A%2014px%3B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dstyle%3A%20italic%3B%0Apadding%3A%200%3B%0Amargin%3A%2015px%200%205px%3B%20%7D%0Adl%20dt%3Afirst%2Dchild%20%7B%0Apadding%3A%200%3B%20%7D%0Adl%20dt%20%3E%20%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%3B%20%7D%0Adl%20dt%20%3E%20%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%3B%20%7D%0Adl%20dd%20%7B%0Amargin%3A%200%200%2015px%3B%0Apadding%3A%200%2015px%3B%20%7D%0Adl%20dd%20%3E%20%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%3B%20%7D%0Adl%20dd%20%3E%20%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%3B%20%7D%0Ablockquote%20%7B%0Aborder%2Dleft%3A%204px%20solid%20%23dddddd%3B%0Apadding%3A%200%2015px%3B%0Acolor%3A%20%23777777%3B%20%7D%0Ablockquote%20%3E%20%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%3B%20%7D%0Ablockquote%20%3E%20%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%3B%20%7D%0Atable%20%7B%0Apadding%3A%200%3B%20%7D%0Atable%20tr%20%7B%0Aborder%2Dtop%3A%201px%20solid%20%23cccccc%3B%0Abackground%2Dcolor%3A%20white%3B%0Amargin%3A%200%3B%0Apadding%3A%200%3B%20%7D%0Atable%20tr%3Anth%2Dchild%282n%29%20%7B%0Abackground%2Dcolor%3A%20%23f8f8f8%3B%20%7D%0Atable%20tr%20th%20%7B%0Afont%2Dweight%3A%20bold%3B%0Aborder%3A%201px%20solid%20%23cccccc%3B%0Atext%2Dalign%3A%20left%3B%0Amargin%3A%200%3B%0Apadding%3A%206px%2013px%3B%20%7D%0Atable%20tr%20td%20%7B%0Aborder%3A%201px%20solid%20%23cccccc%3B%0Atext%2Dalign%3A%20left%3B%0Amargin%3A%200%3B%0Apadding%3A%206px%2013px%3B%20%7D%0Atable%20tr%20th%20%3Afirst%2Dchild%2C%20table%20tr%20td%20%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%3B%20%7D%0Atable%20tr%20th%20%3Alast%2Dchild%2C%20table%20tr%20td%20%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%3B%20%7D%0Aimg%20%7B%0Amax%2Dwidth%3A%20100%25%3B%20%7D%0Aspan%2Eframe%20%7B%0Adisplay%3A%20block%3B%0Aoverflow%3A%20hidden%3B%20%7D%0Aspan%2Eframe%20%3E%20span%20%7B%0Aborder%3A%201px%20solid%20%23dddddd%3B%0Adisplay%3A%20block%3B%0Afloat%3A%20left%3B%0Aoverflow%3A%20hidden%3B%0Amargin%3A%2013px%200%200%3B%0Apadding%3A%207px%3B%0Awidth%3A%20auto%3B%20%7D%0Aspan%2Eframe%20span%20img%20%7B%0Adisplay%3A%20block%3B%0Afloat%3A%20left%3B%20%7D%0Aspan%2Eframe%20span%20span%20%7B%0Aclear%3A%20both%3B%0Acolor%3A%20%23333333%3B%0Adisplay%3A%20block%3B%0Apadding%3A%205px%200%200%3B%20%7D%0Aspan%2Ealign%2Dcenter%20%7B%0Adisplay%3A%20block%3B%0Aoverflow%3A%20hidden%3B%0Aclear%3A%20both%3B%20%7D%0Aspan%2Ealign%2Dcenter%20%3E%20span%20%7B%0Adisplay%3A%20block%3B%0Aoverflow%3A%20hidden%3B%0Amargin%3A%2013px%20auto%200%3B%0Atext%2Dalign%3A%20center%3B%20%7D%0Aspan%2Ealign%2Dcenter%20span%20img%20%7B%0Amargin%3A%200%20auto%3B%0Atext%2Dalign%3A%20center%3B%20%7D%0Aspan%2Ealign%2Dright%20%7B%0Adisplay%3A%20block%3B%0Aoverflow%3A%20hidden%3B%0Aclear%3A%20both%3B%20%7D%0Aspan%2Ealign%2Dright%20%3E%20span%20%7B%0Adisplay%3A%20block%3B%0Aoverflow%3A%20hidden%3B%0Amargin%3A%2013px%200%200%3B%0Atext%2Dalign%3A%20right%3B%20%7D%0Aspan%2Ealign%2Dright%20span%20img%20%7B%0Amargin%3A%200%3B%0Atext%2Dalign%3A%20right%3B%20%7D%0Aspan%2Efloat%2Dleft%20%7B%0Adisplay%3A%20block%3B%0Amargin%2Dright%3A%2013px%3B%0Aoverflow%3A%20hidden%3B%0Afloat%3A%20left%3B%20%7D%0Aspan%2Efloat%2Dleft%20span%20%7B%0Amargin%3A%2013px%200%200%3B%20%7D%0Aspan%2Efloat%2Dright%20%7B%0Adisplay%3A%20block%3B%0Amargin%2Dleft%3A%2013px%3B%0Aoverflow%3A%20hidden%3B%0Afloat%3A%20right%3B%20%7D%0Aspan%2Efloat%2Dright%20%3E%20span%20%7B%0Adisplay%3A%20block%3B%0Aoverflow%3A%20hidden%3B%0Amargin%3A%2013px%20auto%200%3B%0Atext%2Dalign%3A%20right%3B%20%7D%0Acode%2C%20tt%20%7B%0Amargin%3A%200%202px%3B%0Apadding%3A%200%205px%3B%0Awhite%2Dspace%3A%20nowrap%3B%0Aborder%3A%201px%20solid%20%23eaeaea%3B%0Abackground%2Dcolor%3A%20%23f8f8f8%3B%0Aborder%2Dradius%3A%203px%3B%20%7D%0Apre%20code%20%7B%0Amargin%3A%200%3B%0Apadding%3A%200%3B%0Awhite%2Dspace%3A%20pre%3B%0Aborder%3A%20none%3B%0Abackground%3A%20transparent%3B%20%7D%0A%2Ehighlight%20pre%20%7B%0Abackground%2Dcolor%3A%20%23f8f8f8%3B%0Aborder%3A%201px%20solid%20%23cccccc%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%2019px%3B%0Aoverflow%3A%20auto%3B%0Apadding%3A%206px%2010px%3B%0Aborder%2Dradius%3A%203px%3B%20%7D%0Apre%20%7B%0Abackground%2Dcolor%3A%20%23f8f8f8%3B%0Aborder%3A%201px%20solid%20%23cccccc%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%2019px%3B%0Aoverflow%3A%20auto%3B%0Apadding%3A%206px%2010px%3B%0Aborder%2Dradius%3A%203px%3B%20%7D%0Apre%20code%2C%20pre%20tt%20%7B%0Abackground%2Dcolor%3A%20transparent%3B%0Aborder%3A%20none%3B%20%7D%0A" rel="stylesheet">
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-<h1 id="多変量正規分布">多変量正規分布</h1>
-<p>このプログラムは多変量正規分布の計算をする。 Zdravko I. Botev 氏のRパッケージTruncatedNormal のC++版である。</p>
-<h1 id="インストール">インストール</h1>
-<pre><code>./configure --prefix=YOUR_INSTALL_DIR
-make
-make install</code></pre>
-<h1 id="準備">準備</h1>
-<p>環境変数 DIGITAL_NET_PATH をインストールディレクトリ以下のshare/truncatednormalに セットする。</p>
-<pre><code>export DIGITAL_NET_PATH=YOUR_INSTALL_DIR/share/truncatednormal</code></pre>
-<p>LIBRARY_PATH と CPLUS_INCLUDE_PATH を適切にセットする。</p>
-<h1 id="注意">注意</h1>
-<p>データファイル 'nxlw.dat' と 'solw.dat' はLittel Endianシステムで作られた バイナリファイルであり、 Big Endian システムでは正確に動作しないだろう。</p>
-<h1 id="使用法">使用法</h1>
-<p>多変量正規分布の計算をするC++関数は<a href="../namespace_m_c_q_m_c_integration.html#af4e5dfd18fce6c772805a91bd7fa2c02">MCQMCIntegration::truncatedNormal()</a>である。 この関数の引数として<a href="../class_m_c_q_m_c_integration_1_1_digital_net.html">MCQMCIntegration::DigitalNetID</a>を使用する。 この関数の返却値は<a href="../struct_m_c_q_m_c_integration_1_1_truncated_normal_result.html">MCQMCIntegreation::TruncatedNormalResult</a>である。</p>
-<h2 id="mcqmcintegrationtruncatednormalの引数">MCQMCIntegration::truncatedNormal()の引数</h2>
-<dl>
-<dt>
-s
-</dt>
-<dd>
-s 多変量正規分布の次元である。直接の引数ではないが, 以下の引数に関わるもの。4 &lt;= s &lt;= 10
-</dd>
-<dt>
-const std::vector&lt; double &gt; &amp; lower
-</dt>
-<dd>
-積分領域の下限を表すベクトル。長さは積分領域の次元sである。
-</dd>
-<dt>
-const std::vector&lt; double &gt; &amp; upper
-</dt>
-<dd>
-積分領域の上限を表すベクトル。長さは積分領域の次元sである。
-</dd>
-<dt>
-const std::vector&lt; std::vector&lt; double &gt; &gt; &amp; sigma
-</dt>
-<dd>
-分散・共分散行列。s次正方行列。
-</dd>
-<dt>
-uint64_t number
-</dt>
-<dd>
-積分を行う回数。この回数だけ積分を繰り返し、平均と誤差を求める。
-</dd>
-<dt>
-DigitalNetID dnid
-</dt>
-<dd>
-使用するデジタルネットを表す。
-<ul>
-<li>
-NXLW : WAFOM値の低い Niederreiter-Xing 点集合。
-</li>
-<li>
-SOLW : WAFOM値の低い　Sobol 点集合。
-</li>
-</ul>
-</dd>
-<dt>
-uint32_t m
-</dt>
-<dd>
-デジタルネットの上位mビットまでの精度, また１回の積分で2^m個の点を使用する。10 &lt;= m &lt;= 18。
-</dd>
-<dt>
-double probability
-</dt>
-<dd>
-積分結果が誤差内に入ると期待される確率。0.95, 0.99, 0.999, 0.9999のいずれか。
-</dd>
-</dl>
-<h2 id="mcqmcintegrationtruncatednormalの返却値">MCQMCIntegration::truncatedNormal()の返却値</h2>
-<dl>
-<dt>
-probability
-</dt>
-<dd>
-指定された正規分布の値(累積確率)
-</dd>
-<dt>
-absoluteError
-</dt>
-<dd>
-絶対誤差
-</dd>
-<dt>
-relativeError
-</dt>
-<dd>
-相対誤差
-</dd>
-<dt>
-upperBound
-</dt>
-<dd>
-正規分布の値の理論上の上限(Botevによる)
-</dd>
-<dt>
-success
-</dt>
-<dd>
-計算が成功したかどうかを示す。true:成功, false:失敗
-</dd>
-</dl>
-<h2 id="mcqmcintegrationtruncatednormalのプログラム例">MCQMCIntegration::truncatedNormal()のプログラム例</h2>
-<p><a href="example-qmc.md">プログラムの例</a></p>
-<h1 id="reference">REFERENCE</h1>
-<ul>
-<li><a href="https://cran.r-project.org/package=TruncatedNormal" class="uri">https://cran.r-project.org/package=TruncatedNormal</a></li>
-<li>Z. I. Botev (2015), The Normal Law Under Linear Restrictions: Simulation and Estimation via Minimax Tilting, submitted to JRSS(B)</li>
-<li>Z. I. Botev and P. L’Ecuyer (2015), Efficient Estimation and Simulation of the Truncated Multivariate Student-t Distribution, Proceedings of the 2015 Winter Simulation Conference, Huntington Beach, CA, USA</li>
-<li>Gibson G. J., Glasbey C. A., Elston D. A. (1994), Monte Carlo evaluation of multivariate normal integrals and sensitivity to variate ordering, In: Advances in Numerical Methods and Applications, pages 120–126</li>
-</ul>
-<h1 id="license">LICENSE</h1>
-<pre><code>Copyright (C) 2015 Zdravko I. Botev.
+<h1 id="mcqmcintegrationtruncatednormal呼び出し例">MCQMCIntegration::truncatedNormal()呼び出し例</h1>
+<p>この例では、 まず#includeとnamespaceの指定をしている。</p>
+<div class="sourceCode" id="prepare1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="pp">#include </span><span class="im">&lt;MCQMCIntegration/TruncatedNormal.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;MCQMCIntegration/DigitalNet.h&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;iostream&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;iomanip&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;string&gt;</span>
+<span class="pp">#include </span><span class="im">&lt;cmath&gt;</span>
 
-Copyright (C) 2017 Shinsuke Mori, Makoto Matsutmoto, Mutsuo Saito
-and Hiroshima University.
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</code></pre>
+<span class="kw">using</span> <span class="kw">namespace</span> std;
+<span class="kw">using</span> <span class="kw">namespace</span> MCQMCIntegration;</code></pre></div>
+<p>次に多変量正規分布の値を求める範囲と分散共分散行列の初期値を設定している。 truncatedNormalの引数はVector型であるが、初期値を設定するために配列にしている。</p>
+<div class="sourceCode" id="prepare2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="co">// パラメータの例</span>
+<span class="at">const</span> <span class="dt">uint32_t</span> s = <span class="dv">5</span>;
+<span class="dt">double</span> LOWER[<span class="dv">5</span>] = {-INFINITY, -INFINITY, -INFINITY, -INFINITY, -INFINITY};
+<span class="dt">double</span> UPPER[<span class="dv">5</span>] = {<span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>, <span class="fl">0.0</span>};
+<span class="dt">double</span> SIGMA[<span class="dv">5</span>][<span class="dv">5</span>] = {
+    {<span class="fl">1.666667e+00</span>, <span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>},
+    {<span class="fl">8.333333e-01</span>, <span class="fl">1.666667e+00</span>, <span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>},
+    {<span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>, <span class="fl">1.666667e+00</span>, <span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>},
+    {<span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>, <span class="fl">1.666667e+00</span>, <span class="fl">8.333333e-01</span>},
+    {<span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>, <span class="fl">8.333333e-01</span>, <span class="fl">1.666667e+00</span>}
+};</code></pre></div>
+<p>以下はmain関数になる。配列をvectorに変更し、truncatedNormal関数を呼び出している。</p>
+<div class="sourceCode" id="main"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="dt">int</span> main()
+{
+    <span class="co">// 積分領域の準備</span>
+    vector&lt;<span class="dt">double</span>&gt; lower(LOWER, LOWER+s);
+    vector&lt;<span class="dt">double</span>&gt; upper(UPPER, UPPER+s);
+    <span class="co">// 分散共分散行列の準備</span>
+    vector&lt; vector&lt;<span class="dt">double</span>&gt; &gt; sigma(s);
+    <span class="cf">for</span> (<span class="dt">uint32_t</span> i = <span class="dv">0</span>; i &lt; s; i++) {
+        <span class="cf">for</span> (<span class="dt">uint32_t</span> j = <span class="dv">0</span>; j &lt; s; j++) {
+            sigma[i].push_back(SIGMA[i][j]);
+        }
+    }
+    <span class="co">// QMCによる多変量正規分布の計算</span>
+    DigitalNetID id = NXLW;
+    <span class="at">const</span> TruncatedNormalResult result
+        = truncatedNormal(lower,
+                          upper,
+                          sigma,
+                          <span class="dv">10000</span>, <span class="co">// number of samples</span>
+                          id,    <span class="co">// Low WAFOM Niederreiter-Xing</span>
+                          <span class="dv">10</span>,    <span class="co">// 2^10 points in digital net point set.</span>
+                          <span class="fl">0.99</span>);
+    <span class="co">// 結果のチェック</span>
+    <span class="cf">if</span> (!result.success) {
+        cout &lt;&lt; <span class="st">&quot;calculation failed&quot;</span> &lt;&lt; endl;
+        <span class="cf">return</span> <span class="dv">-1</span>;
+    }
+    <span class="co">// 結果の表示</span>
+    cout &lt;&lt; <span class="st">&quot;probability:&quot;</span> &lt;&lt; result.probability &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;absoluteError:&quot;</span> &lt;&lt; result.absoluteError &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;relativeError:&quot;</span> &lt;&lt; result.relativeError &lt;&lt; endl;
+    cout &lt;&lt; <span class="st">&quot;theoreticalUpperBound:&quot;</span> &lt;&lt; result.upperBound &lt;&lt; endl;
+    <span class="cf">return</span> <span class="dv">0</span>;
+}</code></pre></div>
+<p>この実行結果は以下のようになる。</p>
+<pre><code>probability:0.166662
+absoluteError:4.55524e-06
+relativeError:2.73321e-05
+theoreticalUpperBound:0.191145</code></pre>
 </body>
 </html>
