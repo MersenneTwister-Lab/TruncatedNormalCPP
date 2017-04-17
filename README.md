@@ -38,7 +38,8 @@ REFERENCE
 =========
 * https://cran.r-project.org/package=TruncatedNormal
 * Z. I. Botev (2015), The Normal Law Under Linear Restrictions:
-Simulation and Estimation via Minimax Tilting, submitted to JRSS(B)
+Simulation and Estimation via Minimax Tilting,
+JRSS(B) Vol 79, pp 125–148, DOI:10.1111/rssb.12162
 * Z. I. Botev and P. L’Ecuyer (2015), Efficient Estimation and Simulation
 of the Truncated Multivariate Student-t Distribution,
 Proceedings of the 2015 Winter Simulation Conference,

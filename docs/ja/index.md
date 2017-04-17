@@ -3,7 +3,7 @@
 
 このプログラムは多変量正規分布の計算をする。
 Zdravko I. Botev 氏のRパッケージTruncatedNormal
-のC++版である。
+のC++版である。(ただし超一様分布列はWAFOM値の低いものに変更している)
 
 ソースファイル
 ==========
@@ -96,13 +96,14 @@ MCQMCIntegration::truncatedNormal()の返却値
 
 MCQMCIntegration::truncatedNormal()のプログラム例
 ---------------------------------------------
-[プログラムの例](example-qmc.md)
+[プログラムの例](example-qmc.html)
 
 REFERENCE
 =========
 * [https://cran.r-project.org/package=TruncatedNormal](https://cran.r-project.org/package=TruncatedNormal)
 * Z. I. Botev (2015), The Normal Law Under Linear Restrictions:
-Simulation and Estimation via Minimax Tilting, submitted to JRSS(B)
+Simulation and Estimation via Minimax Tilting,
+JRSS(B) Vol 79, pp 125–148, DOI:10.1111/rssb.12162
 * Z. I. Botev and P. L’Ecuyer (2015), Efficient Estimation and Simulation
 of the Truncated Multivariate Student-t Distribution,
 Proceedings of the 2015 Winter Simulation Conference,
