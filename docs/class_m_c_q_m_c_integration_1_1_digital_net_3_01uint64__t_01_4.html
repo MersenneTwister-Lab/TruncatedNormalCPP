@@ -195,11 +195,12 @@ class MCQMCIntegration::DigitalNet&lt; uint64_t &gt;</h3>
 
 <p>constructor from pre-defined data. </p>
 <p>DigitalNetID: </p><ul>
-<li>NXLW : Niederreiter-Xing low WAFOM </li>
-<li>SOLW : Sobol low WAFOM. <dl class="params"><dt>Parameters</dt><dd>
+<li>NXLW : Niederreiter-Xing low WAFOM up to dimension 10. </li>
+<li>SOBOL: Sobol Point Set up to dimension 21201. </li>
+<li>SOLW : Sobol low WAFOM up to dimension 10. <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>ID of pre-defined digital net. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>dimension of point set, s should be 4 &lt;= s &lt;= 10. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>dimension of point set, s should be 4 &lt;= s </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>F2 dimension of element of point set, m should be 10 &lt;= m &lt;= 18. </td></tr>
   </table>
   </dd>
@@ -679,7 +680,7 @@ class MCQMCIntegration::DigitalNet&lt; uint64_t &gt;</h3>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 12 2017 16:40:25 for TruncatedNormalCPP by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 18 2017 14:06:11 for TruncatedNormalCPP by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

@@ -62,8 +62,6 @@ namespace MCQMCIntegration {
 
     /*
      * Monte-Carlo Integration.
-     * This function returns mean value, to get sum value multiply m
-     * to the result.
      *
      * @tperm I integrand function class.
      * @tparm R Random number generator class.
@@ -110,8 +108,6 @@ namespace MCQMCIntegration {
 
     /*
      * Quasi Monte-Carlo Integration
-     * This function returns mean value, to get sum value multiply m
-     * to the result.
      *
      * @tperm I integrand function class
      * @tparm D DigitalNet class for Quasi Monete-Carlo integration.
@@ -152,8 +148,6 @@ namespace MCQMCIntegration {
 
     /*
      * Quasi Monte-Carlo Integration
-     * This function returns mean value, to get sum value multiply m
-     * to the result.
      *
      * @tperm I integrand function class
      *

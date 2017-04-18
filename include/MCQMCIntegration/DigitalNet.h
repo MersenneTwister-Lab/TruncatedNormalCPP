@@ -32,6 +32,8 @@ namespace MCQMCIntegration {
      * ID of pre-defined Digital Net.
      */
     enum DigitalNetID {
+        /** Sobol Point Set up to dimension 21201. */
+        SOBOL = 1,
         /** Niederreiter-Xing point set of Low WAFOM. */
         NXLW = 3,
         /** Sobol point set of Low WAFOM. */
@@ -104,10 +106,11 @@ namespace MCQMCIntegration {
          * constructor from pre-defined data.
          *
          * DigitalNetID:
-         * @li NXLW : Niederreiter-Xing low WAFOM
-         * @li SOLW : Sobol low WAFOM.
+         * @li NXLW : Niederreiter-Xing low WAFOM up to dimension 10.
+         * @li SOBOL: Sobol Point Set up to dimension 21201.
+         * @li SOLW : Sobol low WAFOM up to dimension 10.
          * @param[in] id ID of pre-defined digital net.
-         * @param[in] s dimension of point set, s should be 4 <= s <= 10.
+         * @param[in] s dimension of point set, s should be 4 <= s
          * @param[in] m F2 dimension of element of point set, m should be
          * 10 <= m <= 18.
          */
