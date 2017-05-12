@@ -260,7 +260,7 @@ namespace MCQMCIntegration {
         void scramble(int i, int j, int l);
         uint32_t s;
         uint32_t m;
-        uint64_t shift;
+        uint64_t *shift;
         uint64_t count;
         double wafom;
         int64_t tvalue;
